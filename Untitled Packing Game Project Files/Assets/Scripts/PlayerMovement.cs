@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (normalizedMove.x > 0)
         {
-            rb.AddForce(orientation.right * moveForce, ForceMode2D.Force);
+            rb.AddForce(orientation.right * moveForce * Time.deltaTime, ForceMode2D.Force);
             spriteRenderer.flipX = true; //changes the sprites direction to the right
             isRight = true;
             isMoving = true;
@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (normalizedMove.x < 0)
         {
-            rb.AddForce(-orientation.right * moveForce, ForceMode2D.Force);
+            rb.AddForce(-orientation.right * moveForce * Time.deltaTime, ForceMode2D.Force);
             spriteRenderer.flipX = false; //changes the sprites direction to the left
             isRight = false;
             isMoving = true;
