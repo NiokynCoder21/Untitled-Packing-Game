@@ -17,6 +17,12 @@ public class PlayerMovement : MonoBehaviour
     public GameObject door;
     public bool isDoor = false;
     public bool isDoorDestroyed = false;
+    public bool isCar;
+
+    public CarStorageManager carManager;
+    public ItemManager itemManager;
+    public int pickUpAmount;
+
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -25,19 +31,35 @@ public class PlayerMovement : MonoBehaviour
 
     public void onDoor(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if(isDoor == true)
         {
-            if (isDoorDestroyed == false)
+            if (context.performed)
             {
-                OpenDoor();
-                isDoorDestroyed = true; 
-            }
+                if (isDoorDestroyed == false)
+                {
+                    OpenDoor();
+                    isDoorDestroyed = true;
+                }
 
-            else
-            {
-                CloseDoor();
-                isDoorDestroyed = false;
+                else
+                {
+                    CloseDoor();
+                    isDoorDestroyed = false;
+                }
             }
+        }
+        
+    }
+
+    public void onCar(InputAction.CallbackContext context)
+    {
+        if (isCar == true)
+        {
+            if (context.performed)
+            {
+                CarOptions();
+            }
+            
         }
     }
 
@@ -98,19 +120,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-  /*  public void DoorOptions()
-    {
-        if (isDoor == true)
-        {
-            if (isDoorDestroyed == false)
-            {
-                
-            }
-           
-        }
-
-    }*/
-
     public void OpenDoor()
     {
         door.gameObject.SetActive(false);
@@ -121,9 +130,24 @@ public class PlayerMovement : MonoBehaviour
         door.gameObject.SetActive(true);
     }
 
+    public void CarOptions()
+    {
+        if (carManager != null && itemManager != null)
+        {
+            carManager.LossGroceries(pickUpAmount);
+            itemManager.AwardItems(pickUpAmount);
+            print("getstuuf");
+        }
+    }
+
     public void SetIsDoor(bool state) //this is used to allow me to check for leftwall in a collsion script
     {
-        isDoor= state;
+        isDoor = state;
+    }
+
+    public void SetIsCar(bool state)
+    {
+        isCar = state;
     }
 
 }
