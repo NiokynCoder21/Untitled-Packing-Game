@@ -14,9 +14,31 @@ public class PlayerMovement : MonoBehaviour
     public bool isMoving = false;
     public float boostForce;
 
+    public GameObject door;
+    public bool isDoor = false;
+    public bool isDoorDestroyed = false;
+
     public void OnMove(InputAction.CallbackContext context)
     {
         move = context.ReadValue<Vector2>(); //this detects input along the vector and allows movement 
+    }
+
+    public void onDoor(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (isDoorDestroyed == false)
+            {
+                OpenDoor();
+                isDoorDestroyed = true; 
+            }
+
+            else
+            {
+                CloseDoor();
+                isDoorDestroyed = false;
+            }
+        }
     }
 
     void FixedUpdate()
@@ -75,4 +97,33 @@ public class PlayerMovement : MonoBehaviour
             isMoving = false;
         }
     }
+
+  /*  public void DoorOptions()
+    {
+        if (isDoor == true)
+        {
+            if (isDoorDestroyed == false)
+            {
+                
+            }
+           
+        }
+
+    }*/
+
+    public void OpenDoor()
+    {
+        door.gameObject.SetActive(false);
+    }
+
+    public void CloseDoor()
+    {
+        door.gameObject.SetActive(true);
+    }
+
+    public void SetIsDoor(bool state) //this is used to allow me to check for leftwall in a collsion script
+    {
+        isDoor= state;
+    }
+
 }
