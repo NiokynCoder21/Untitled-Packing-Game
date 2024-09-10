@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isCar == true)
         {
-            if (context.performed)
+            if (context.performed) //only takes 1 input
             {
                 CarOptions();
             }

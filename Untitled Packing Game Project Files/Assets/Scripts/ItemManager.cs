@@ -18,8 +18,11 @@ public class ItemManager : MonoBehaviour
  
     public void AwardItems(int points)
     {
-        currentItem += points; //add points to score and take the new amount
-        UpdateScoreText(); //dispaly the new amount
+        if (currentItem < 5)
+        {
+            currentItem += points; //add points to score and take the new amount
+            UpdateScoreText(); //dispaly the new amount
+        }
     }
 
     public void LossItems(int points)
