@@ -15,25 +15,30 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         score = 0;
+        UpdateScoreText();
     }
 
-    public void AwardItems(int points)
+    public void AwardItems(int points, int more)
     {
         score += points;
+        UpdateScoreText();
 
         if (isKitchen == true)
         {
-            score += points;
+            score += more;
+            UpdateScoreText();
         }
 
         if (isLivingRoom == true)
         {
-            score += points;
+            score += more;
+            UpdateScoreText();
         }
 
         if (isDiningRoom == true)
         {
-            score += points;
+            score += more;
+            UpdateScoreText();
         }
     }
 

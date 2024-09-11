@@ -22,7 +22,9 @@ public class PlayerMovement : MonoBehaviour
     public CarStorageManager carManager;
     public ItemManager itemManager;
     public int pickUpAmount;
-
+    public ScoreManager scoreManager;
+    public int scoreAmount;
+    public int moreScoreAmount;
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -154,11 +156,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void DropItem()
     {
-        if (itemManager != null)
+        if (itemManager != null && scoreManager != null)
         {
             if (itemManager.currentItem > 0)
             {
                 itemManager.LossItems(pickUpAmount);
+                scoreManager.AwardItems(scoreAmount, moreScoreAmount);
+
             }
         }
     }
