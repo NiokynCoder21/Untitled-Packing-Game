@@ -63,6 +63,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void onDrop(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            DropItem();
+        }
+    }
+
     void FixedUpdate()
     {
         Move();
@@ -134,9 +142,24 @@ public class PlayerMovement : MonoBehaviour
     {
         if (carManager != null && itemManager != null)
         {
-            carManager.LossGroceries(pickUpAmount);
-            itemManager.AwardItems(pickUpAmount);
-            print("getstuuf");
+            if (itemManager.currentItem < 5 && carManager.currentGroceries > 0)
+            {
+                carManager.LossGroceries(pickUpAmount);
+                itemManager.AwardItems(pickUpAmount);
+            }
+
+           
+        }
+    }
+
+    public void DropItem()
+    {
+        if (itemManager != null)
+        {
+            if (itemManager.currentItem > 0)
+            {
+                itemManager.LossItems(pickUpAmount);
+            }
         }
     }
 

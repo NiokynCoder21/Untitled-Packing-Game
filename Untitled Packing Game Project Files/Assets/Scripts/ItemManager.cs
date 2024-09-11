@@ -7,7 +7,8 @@ public class ItemManager : MonoBehaviour
 {
     public TMP_Text currentItemText; //score text
 
-    private int currentItem = 0; //set score to zero
+    public int currentItem = 0; //set score to zero
+    public CarStorageManager carManager;
 
     private void Start()
     {
@@ -27,11 +28,8 @@ public class ItemManager : MonoBehaviour
 
     public void LossItems(int points)
     {
-        if(currentItem <= 5)
-        {
-            currentItem -= points; //add points to score and take the new amount
-            UpdateScoreText(); //dispaly the new amount
-        }
+        currentItem -= points; //add points to score and take the new amount
+        UpdateScoreText(); //dispaly the new amount
     }
 
     private void UpdateScoreText()

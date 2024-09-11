@@ -1469,6 +1469,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 8381f0ed-267f-4c1d-9a08-c332dc4f8b91
     m_ActionName: Player/GroceryPickUp[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 591926991}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: onDrop
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3973e25f-3f4f-421f-82b3-664de1ca3070
+    m_ActionName: Player/GroceryDrop[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -4398,6 +4414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentItemText: {fileID: 792047341}
+  currentItem: 0
 --- !u!1 &1912197392
 GameObject:
   m_ObjectHideFlags: 0

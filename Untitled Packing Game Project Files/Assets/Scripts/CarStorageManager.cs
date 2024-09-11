@@ -18,7 +18,7 @@ public class CarStorageManager : MonoBehaviour
 
     public void LossGroceries(int loss)
     {
-        if (currentGroceries >= 20)
+        if (currentGroceries > 0)
         {
             currentGroceries -= loss;
             UpdateScoreText(); //display the current score 
