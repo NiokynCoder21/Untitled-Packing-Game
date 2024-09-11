@@ -102,13 +102,11 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isRight == true)
             {
-                print("Left faster");
                 rb.AddForce(orientation.right * boostForce * Time.deltaTime, ForceMode2D.Impulse);
             }
 
             if (isRight == false)
             {
-                print("faster");
                 rb.AddForce(-orientation.right * boostForce * Time.deltaTime, ForceMode2D.Impulse);
             }
         }
