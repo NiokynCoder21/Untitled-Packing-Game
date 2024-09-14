@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 13643416}
   m_Layer: 0
   m_Name: DropOff Checker
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2890,7 +2890,7 @@ GameObject:
   - component: {fileID: 591926992}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3996,7 +3996,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.13333334, g: 0.10980393, b: 0.82745105, a: 1}
   m_FlipX: 0
@@ -8508,7 +8508,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.13333334, g: 0.10980393, b: 0.82745105, a: 1}
   m_FlipX: 0
@@ -8935,7 +8935,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.13333334, g: 0.10980393, b: 0.82745105, a: 1}
   m_FlipX: 0
@@ -9149,7 +9149,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.13333334, g: 0.10980393, b: 0.82745105, a: 1}
   m_FlipX: 0
@@ -9992,7 +9992,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2112241219}
   - component: {fileID: 2112241220}
-  - component: {fileID: 2112241222}
   - component: {fileID: 2112241221}
   m_Layer: 0
   m_Name: Square
@@ -10097,7 +10096,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -10113,19 +10112,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.36, y: 1.41}
   m_EdgeRadius: 0
---- !u!114 &2112241222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2112241218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8215dceaedd61f64d855e9b4ce3991b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stuff: {fileID: 2112241218}
 --- !u!1 &2116499516
 GameObject:
   m_ObjectHideFlags: 0
