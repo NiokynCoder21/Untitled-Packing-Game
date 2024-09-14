@@ -5,35 +5,86 @@ using TMPro;
 
 public class ItemManager : MonoBehaviour
 {
-    public TMP_Text currentItemText; //score text
+    public TMP_Text kitchenStuffText;
+    public TMP_Text livingStuffText;
+    public TMP_Text diningStuffText;
 
-    public int currentItem = 0; //set score to zero
-    public CarStorageManager carManager;
+    public int currentKitchenStuff = 0;
+    public int currentLivingStuff = 0;
+    public int currentDiningStuff = 0;
+    public int currentItems = 0;
+
+    public ScoreManager scoreManager;
 
     private void Start()
     {
-        currentItem = 0;
-        UpdateScoreText(); //display the current score 
+      currentKitchenStuff = 0;
+      currentLivingStuff = 0;
+      currentDiningStuff = 0;
+      currentItems = 0;
+
+      UpdateScoreText(); //display the current score 
     }
 
  
-    public void AwardItems(int points)
+    public void AwardItems(int points, int more, int most, int better)
     {
-        if (currentItem < 5)
+        if (currentItems > 5)
         {
-            currentItem += points; //add points to score and take the new amount
-            UpdateScoreText(); //dispaly the new amount
+            if (scoreManager.isKitchen == true)
+            {
+                currentKitchenStuff += more;
+                currentItems += points;
+                UpdateScoreText();
+            }
+
+            if (scoreManager.isLivingRoom == true)
+            {
+                currentLivingStuff += most;
+                currentItems += points;
+                UpdateScoreText();
+            }
+
+            if (scoreManager.isDiningRoom == true)
+            {
+                currentDiningStuff += better;
+                currentItems += points;
+                UpdateScoreText();
+            }
         }
     }
 
-    public void LossItems(int points)
+    public void LossItems(int points, int more, int most, int better)
     {
-        currentItem -= points; //add points to score and take the new amount
-        UpdateScoreText(); //dispaly the new amount
+        if (currentItems > 5)
+        {
+            if (scoreManager.isKitchen == true)
+            {
+                currentKitchenStuff -= more;
+                currentItems += points;
+                UpdateScoreText();
+            }
+
+            if (scoreManager.isLivingRoom == true)
+            {
+                currentLivingStuff -= most;
+                currentItems += points;
+                UpdateScoreText();
+            }
+
+            if (scoreManager.isDiningRoom == true)
+            {
+                currentDiningStuff -= better;
+                currentItems += points;
+                UpdateScoreText();
+            }
+        }
     }
 
     private void UpdateScoreText()
     {
-        currentItemText.text = "Grocieries: " + currentItem; //update text to show the current score
+        kitchenStuffText.text = "" + currentKitchenStuff;
+        livingStuffText.text = "" + currentLivingStuff;
+        diningStuffText.text = "" + currentDiningStuff;
     }
 }

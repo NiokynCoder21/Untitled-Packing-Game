@@ -4,19 +4,15 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    public CarStorageManager carManager;
-    public ItemManager itemManager;
-    public int pickUpAmount;
+    public GameObject stuff;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Car"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            if (carManager != null && itemManager != null)
-            {
-                carManager.LossGroceries(pickUpAmount);
-                itemManager.AwardItems(pickUpAmount);
-            }
+            Destroy(this);
         }
     }
+
+   
 }

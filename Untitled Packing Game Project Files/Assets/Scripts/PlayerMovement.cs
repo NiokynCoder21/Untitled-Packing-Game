@@ -14,14 +14,17 @@ public class PlayerMovement : MonoBehaviour
     public bool isMoving = false;
     public float boostForce;
 
+    public int addItems;
+    public int addKitchen;
+    public int addLiving;
+    public int addDining;
+
     public GameObject door;
     public bool isDoor = false;
     public bool isDoorDestroyed = false;
     public bool isCar;
 
-    public CarStorageManager carManager;
     public ItemManager itemManager;
-    public int pickUpAmount;
     public ScoreManager scoreManager;
     public int scoreAmount;
     public int moreScoreAmount;
@@ -55,14 +58,20 @@ public class PlayerMovement : MonoBehaviour
 
     public void onCar(InputAction.CallbackContext context)
     {
-        if (isCar == true)
+        if (scoreManager.isKitchen == true || scoreManager.isLivingRoom == true || scoreManager.isDiningRoom == true)
         {
-            if (context.performed) //only takes 1 input
+           
+            if (context.performed)
             {
-                CarOptions();
+                PickUp();
             }
-            
         }
+       
+        if (context.performed) //only takes 1 input
+        {
+           DropItem();
+        }  
+
     }
 
     public void onDrop(InputAction.CallbackContext context)
@@ -138,14 +147,13 @@ public class PlayerMovement : MonoBehaviour
         door.gameObject.SetActive(true);
     }
 
-    public void CarOptions()
+    public void PickUp()
     {
-        if (carManager != null && itemManager != null)
+        if (itemManager != null)
         {
-            if (itemManager.currentItem < 5 && carManager.currentGroceries > 0)
+            if (itemManager.currentItems < 5)
             {
-                carManager.LossGroceries(pickUpAmount);
-                itemManager.AwardItems(pickUpAmount);
+                itemManager.AwardItems(addItems, addKitchen, addLiving, addDining);
             }
 
            
@@ -156,9 +164,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (itemManager != null && scoreManager != null)
         {
-            if (itemManager.currentItem > 0)
+            if (itemManager.currentItems > 0)
             {
-                itemManager.LossItems(pickUpAmount);
+                itemManager.LossItems(addItems, addKitchen, addLiving, addDining);
                 scoreManager.AwardItems(scoreAmount, moreScoreAmount);
 
             }
