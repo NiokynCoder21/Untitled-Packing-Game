@@ -28,6 +28,11 @@ public class PlayerMovement : MonoBehaviour
     public ScoreManager scoreManager;
     public int scoreAmount;
     public int moreScoreAmount;
+    public int lesserScoreAmount;
+    public bool isGrocery = false;
+    public bool kitchenFood = false; //this is to check whether the player is touching kitchen groceries or not
+    public bool diningFood = false; // this is to check whether the player is touching dining groceries or not
+    public bool livingFood = false; 
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -58,19 +63,23 @@ public class PlayerMovement : MonoBehaviour
 
     public void onCar(InputAction.CallbackContext context)
     {
-        if (scoreManager.isKitchen == true || scoreManager.isLivingRoom == true || scoreManager.isDiningRoom == true)
+
+        if (context.performed)
         {
-           
-            if (context.performed)
+           /* if (scoreManager != null)
+            {
+                if (scoreManager.isKitchen == true || scoreManager.isLivingRoom == true || scoreManager.isDiningRoom == true) //if the player is on this area
+                {
+                    DropItem();
+                }
+            }*/
+
+            if (isGrocery == true) //if the player is touching groceries 
             {
                 PickUp();
             }
+
         }
-       
-        if (context.performed) //only takes 1 input
-        {
-           DropItem();
-        }  
 
     }
 
@@ -167,7 +176,7 @@ public class PlayerMovement : MonoBehaviour
             if (itemManager.currentItems > 0)
             {
                 itemManager.LossItems(addItems, addKitchen, addLiving, addDining);
-                scoreManager.AwardItems(scoreAmount, moreScoreAmount);
+                scoreManager.AwardItems(scoreAmount, moreScoreAmount, lesserScoreAmount);
 
             }
         }
@@ -181,6 +190,16 @@ public class PlayerMovement : MonoBehaviour
     public void SetIsCar(bool state)
     {
         isCar = state;
+    }
+
+    public void SetIsGrocery(bool state)
+    {
+        isGrocery = state;
+    }
+
+    public void SetKitchenFood(bool state)
+    {
+
     }
 
 }

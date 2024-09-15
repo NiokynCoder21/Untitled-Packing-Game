@@ -18,7 +18,7 @@ public class ScoreManager : MonoBehaviour
         UpdateScoreText();
     }
 
-    public void AwardItems(int points, int more)
+    public void AwardItems(int points, int more, int lesser)
     {
         score += points;
         UpdateScoreText();
@@ -38,6 +38,12 @@ public class ScoreManager : MonoBehaviour
         if (isDiningRoom == true)
         {
             score += more;
+            UpdateScoreText();
+        }
+
+        else
+        {
+            score -= lesser;
             UpdateScoreText();
         }
     }

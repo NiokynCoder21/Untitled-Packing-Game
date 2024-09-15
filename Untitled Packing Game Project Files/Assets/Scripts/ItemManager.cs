@@ -15,6 +15,7 @@ public class ItemManager : MonoBehaviour
     public int currentItems = 0;
 
     public ScoreManager scoreManager;
+    public PlayerMovement movement;
 
     private void Start()
     {
@@ -29,23 +30,23 @@ public class ItemManager : MonoBehaviour
  
     public void AwardItems(int points, int more, int most, int better)
     {
-        if (currentItems > 5)
+        if (currentItems < 5)
         {
-            if (scoreManager.isKitchen == true)
+            if (movement.isGrocery == true)
             {
                 currentKitchenStuff += more;
                 currentItems += points;
                 UpdateScoreText();
             }
 
-            if (scoreManager.isLivingRoom == true)
+            if (movement.isGrocery == false)
             {
                 currentLivingStuff += most;
                 currentItems += points;
                 UpdateScoreText();
             }
 
-            if (scoreManager.isDiningRoom == true)
+            if (movement.isGrocery == false)
             {
                 currentDiningStuff += better;
                 currentItems += points;
@@ -56,27 +57,32 @@ public class ItemManager : MonoBehaviour
 
     public void LossItems(int points, int more, int most, int better)
     {
-        if (currentItems > 5)
+        if (currentItems > 0)
         {
             if (scoreManager.isKitchen == true)
             {
                 currentKitchenStuff -= more;
-                currentItems += points;
+                currentItems -= points;
                 UpdateScoreText();
             }
 
             if (scoreManager.isLivingRoom == true)
             {
                 currentLivingStuff -= most;
-                currentItems += points;
+                currentItems -= points;
                 UpdateScoreText();
             }
 
             if (scoreManager.isDiningRoom == true)
             {
                 currentDiningStuff -= better;
-                currentItems += points;
+                currentItems -= points;
                 UpdateScoreText();
+            }
+
+            else
+            {
+                print("dropped something");
             }
         }
     }
