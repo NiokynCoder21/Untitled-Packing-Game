@@ -281,8 +281,8 @@ Transform:
   m_GameObject: {fileID: 13643414}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0096, y: 0.00675, z: 0}
-  m_LocalScale: {x: 0.19931409, y: 0.253929, z: 1}
+  m_LocalPosition: {x: 0.01278, y: 0.00732, z: 0}
+  m_LocalScale: {x: 0.24375586, y: 0.29379505, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 591926987}
@@ -3495,9 +3495,9 @@ MonoBehaviour:
   isCar: 0
   itemManager: {fileID: 1848528458}
   scoreManager: {fileID: 2085565342}
-  scoreAmount: 10
-  moreScoreAmount: 30
-  lesserScoreAmount: 5
+  scoreKitchen: 10
+  scoreLiving: 30
+  scoreDining: 20
   isGrocery: 0
   kitchenFood: 0
   diningFood: 0
@@ -3511,6 +3511,7 @@ MonoBehaviour:
   selectedKitchen: 0
   selectedDining: 0
   selectedLiving: 0
+  hasPicked: 0
   selectedGrocery: 0
 --- !u!61 &591926992
 BoxCollider2D:
@@ -10655,6 +10656,7 @@ MonoBehaviour:
   isLivingRoom: 0
   isDiningRoom: 0
   itemManager: {fileID: 1848528458}
+  movement: {fileID: 0}
 --- !u!4 &2085565343
 Transform:
   m_ObjectHideFlags: 0

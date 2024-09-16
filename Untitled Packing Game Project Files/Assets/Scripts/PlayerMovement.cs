@@ -47,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
     public bool selectedDining = false;
     public bool selectedLiving = false;
 
+    public bool hasPicked = false; //this is to track whether the player has picked up a something or not
+
     public enum GroceryType
     {
         KitchenStuff,
@@ -88,27 +90,23 @@ public class PlayerMovement : MonoBehaviour
 
         if (context.performed)
         {
-           /* if (scoreManager != null)
-            {
-                if (scoreManager.isKitchen == true || scoreManager.isLivingRoom == true || scoreManager.isDiningRoom == true) //if the player is on this area
-                {
-                    DropItem();
-                }
-            }*/
 
             if (kitchenFood == true)
             {
                 PickUp();
+                hasPicked = true;
             }
 
             if (livingFood == true)
             {
                 PickUp();
+                hasPicked = true;
             }
 
             if (diningFood == true)
             {
                 PickUp();
+                hasPicked = true;
             }
         }
 
@@ -220,11 +218,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (itemManager != null && scoreManager != null)
         {
-            
                 switch (selectedGrocery)
                 {
                     case GroceryType.KitchenStuff:
-                        itemManager.LossKitchenStuff(addItems, loseKitchen);
                         selectedKitchen = true;
                         selectedLiving = false;
                         selectedDining = false;
@@ -232,12 +228,13 @@ public class PlayerMovement : MonoBehaviour
                         if (selectedKitchen == true)
                         {
                           scoreManager.AwardKitchenPoints(scoreKitchen);
+                          itemManager.LossKitchenStuff(addItems, loseKitchen);
                         }
 
                         break;
 
                     case GroceryType.DiningRoomStuff:
-                        itemManager.LossDiningStuff(addItems, loseDining);
+                       
                         selectedKitchen = false;
                         selectedLiving = false;
                         selectedDining = true;
@@ -245,12 +242,13 @@ public class PlayerMovement : MonoBehaviour
                         if (selectedDining == true)
                         {
                           scoreManager.AwardDiningPoints(scoreDining);
+                          itemManager.LossDiningStuff(addItems, loseDining);
                         }
 
                     break;
 
                     case GroceryType.LivingRoomStuff:
-                        itemManager.LossLivingStuff(addItems, loseLiving);
+                        
                         selectedKitchen = false;
                         selectedLiving = true;
                         selectedDining = false;
@@ -258,12 +256,14 @@ public class PlayerMovement : MonoBehaviour
                         if (selectedLiving == true)
                         {
                           scoreManager.AwardLivingPoints(scoreLiving);
+                          itemManager.LossLivingStuff(addItems, loseLiving);
                         }
 
                     break;
                 }
             
         }
+
     }
 
     public void SwitchSelection(int direction)

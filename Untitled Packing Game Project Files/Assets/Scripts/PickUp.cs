@@ -13,34 +13,89 @@ public class PickUp : MonoBehaviour //this is logic for setting isGroceries true
         if (collision.gameObject.CompareTag("KitchenRoom"))
         {
             movement.SetKitchenFood(true);
+            
+            if (movement != null)
+            {
+                if (movement.hasPicked == true)
+                {
+                    Destroy(collision.gameObject);
+                    movement.hasPicked = false;
+                }
+            }
         }
 
         if (collision.gameObject.CompareTag("LivingRoom"))
         {
             movement.SetLivingFood(true);
+
+            if (movement != null)
+            {
+                if (movement.hasPicked == true)
+                {
+                    Destroy(collision.gameObject);
+                    movement.hasPicked = false;
+                }
+            }
         }
 
         if (collision.gameObject.CompareTag("DinningRoom"))
         {
             movement.SetDiningFood(true);
+
+            if (movement != null)
+            {
+                if (movement.hasPicked == true)
+                {
+                    Destroy(collision.gameObject);
+                    movement.hasPicked = false;
+                }
+            }
         }
     }
 
-    private void OnTriggerStay(Collider other)
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (other.gameObject.CompareTag("KitchenRoom"))
+        if (collision.gameObject.CompareTag("KitchenRoom"))
         {
             movement.SetKitchenFood(true);
+
+            if (movement != null)
+            {
+                if (movement.hasPicked == true)
+                {
+                    Destroy(collision.gameObject);
+                    movement.hasPicked = false;
+                }
+            }
         }
 
-        if (other.gameObject.CompareTag("LivingRoom"))
+        if (collision.gameObject.CompareTag("LivingRoom"))
         {
             movement.SetLivingFood(true);
+
+            if (movement != null)
+            {
+                if (movement.hasPicked == true)
+                {
+                    Destroy(collision.gameObject);
+                    movement.hasPicked = false;
+                }
+            }
         }
 
-        if (other.gameObject.CompareTag("DinningRoom"))
+        if (collision.gameObject.CompareTag("DinningRoom"))
         {
             movement.SetDiningFood(true);
+
+            if (movement != null)
+            {
+                if (movement.hasPicked == true)
+                {
+                    Destroy(collision.gameObject);
+                    movement.hasPicked = false;
+                }
+            }
         }
     }
 
