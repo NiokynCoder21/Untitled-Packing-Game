@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ItemManager : MonoBehaviour
+public class ItemManager : MonoBehaviour //invetory count keeper
 {
     public TMP_Text kitchenStuffText;
     public TMP_Text livingStuffText;
@@ -32,21 +32,22 @@ public class ItemManager : MonoBehaviour
     {
         if (currentItems < 5)
         {
-            if (movement.isGrocery == true)
+
+            if (movement.kitchenFood == true)
             {
                 currentKitchenStuff += more;
                 currentItems += points;
                 UpdateScoreText();
             }
 
-            if (movement.isGrocery == false)
+            if (movement.livingFood == true)
             {
                 currentLivingStuff += most;
                 currentItems += points;
                 UpdateScoreText();
             }
 
-            if (movement.isGrocery == false)
+            if (movement.diningFood == true)
             {
                 currentDiningStuff += better;
                 currentItems += points;
@@ -55,35 +56,104 @@ public class ItemManager : MonoBehaviour
         }
     }
 
-    public void LossItems(int points, int more, int most, int better)
+    public void LossItems(int points, int more, int most, int better) //the item text when player drop stuff function
     {
         if (currentItems > 0)
         {
-            if (scoreManager.isKitchen == true)
+            /*if (scoreManager.isKitchen == true)
             {
-                currentKitchenStuff -= more;
-                currentItems -= points;
-                UpdateScoreText();
+                if (currentKitchenStuff > 0)
+                {
+                    currentKitchenStuff -= more;
+                    currentItems -= points;
+                    UpdateScoreText();
+                }
+            }*/
+
+       
+           /* if (scoreManager.isLivingRoom == true)
+            {
+                if (currentLivingStuff > 0)
+                {
+                    currentLivingStuff -= most;
+                    currentItems -= points;
+                    UpdateScoreText();
+                }
+                
+            }*/
+
+
+           /* if (scoreManager.isDiningRoom == true)
+            {
+                if (currentDiningStuff > 0)
+                {
+                    currentDiningStuff -= better;
+                    currentItems -= points;
+                    UpdateScoreText();
+                }
+            }*/
+
+        }
+    }
+
+    public void LossKitchenStuff(int points, int more)
+    {
+        if (scoreManager.isKitchen == true)
+        {
+
+            if (movement != null)
+            {
+                if (movement.selectedKitchen == true)
+                {
+                    if (currentKitchenStuff > 0)
+                    {
+                        currentKitchenStuff -= more;
+                        currentItems -= points;
+                        UpdateScoreText();
+                    }
+                }
+            }
+        }
+    }
+
+    public void LossDiningStuff(int points, int more)
+    {
+        if (scoreManager.isDiningRoom == true)
+        {            
+
+            if (movement != null)
+            {
+                if (movement.selectedDining == true)
+                {
+                    if (currentDiningStuff > 0)
+                    {
+                        currentDiningStuff -= more;
+                        currentItems -= points;
+                        UpdateScoreText();
+                    }
+                }
+            }
+        }
+    }
+
+    public void LossLivingStuff(int points, int more)
+    {
+        if (scoreManager.isLivingRoom == true)
+        {
+
+            if (movement != null)
+            {
+                if (movement.selectedLiving == true)
+                {
+                    if (currentLivingStuff > 0)
+                    {
+                        currentLivingStuff -= more;
+                        currentItems -= points;
+                        UpdateScoreText();
+                    }
+                }
             }
 
-            if (scoreManager.isLivingRoom == true)
-            {
-                currentLivingStuff -= most;
-                currentItems -= points;
-                UpdateScoreText();
-            }
-
-            if (scoreManager.isDiningRoom == true)
-            {
-                currentDiningStuff -= better;
-                currentItems -= points;
-                UpdateScoreText();
-            }
-
-            else
-            {
-                print("dropped something");
-            }
         }
     }
 

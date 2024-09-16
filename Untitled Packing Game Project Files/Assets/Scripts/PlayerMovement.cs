@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -26,13 +27,34 @@ public class PlayerMovement : MonoBehaviour
 
     public ItemManager itemManager;
     public ScoreManager scoreManager;
-    public int scoreAmount;
-    public int moreScoreAmount;
-    public int lesserScoreAmount;
+    public int scoreKitchen;
+    public int scoreLiving;
+    public int scoreDining;
     public bool isGrocery = false;
     public bool kitchenFood = false; //this is to check whether the player is touching kitchen groceries or not
     public bool diningFood = false; // this is to check whether the player is touching dining groceries or not
-    public bool livingFood = false; 
+    public bool livingFood = false; //this is to check whether the player is touching living groceries or not
+
+    public Image pinkGroceryUI;
+    public Image blueGroceryUI;
+    public Image purpleGroceryUI;
+
+    public int loseKitchen;
+    public int loseLiving;
+    public int loseDining;
+
+    public bool selectedKitchen = false;
+    public bool selectedDining = false;
+    public bool selectedLiving = false;
+
+    public enum GroceryType
+    {
+        KitchenStuff,
+        LivingRoomStuff,
+        DiningRoomStuff,
+    }
+
+    public GroceryType selectedGrocery = GroceryType.KitchenStuff;
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -74,11 +96,20 @@ public class PlayerMovement : MonoBehaviour
                 }
             }*/
 
-            if (isGrocery == true) //if the player is touching groceries 
+            if (kitchenFood == true)
             {
                 PickUp();
             }
 
+            if (livingFood == true)
+            {
+                PickUp();
+            }
+
+            if (diningFood == true)
+            {
+                PickUp();
+            }
         }
 
     }
@@ -88,6 +119,22 @@ public class PlayerMovement : MonoBehaviour
         if (context.performed)
         {
             DropItem();
+        }
+    }
+
+    public void onLeftSelection(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            SwitchSelection(-1);
+        }
+    }
+
+    public void onRightSelect(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            SwitchSelection(1);
         }
     }
 
@@ -173,12 +220,79 @@ public class PlayerMovement : MonoBehaviour
     {
         if (itemManager != null && scoreManager != null)
         {
-            if (itemManager.currentItems > 0)
-            {
-                itemManager.LossItems(addItems, addKitchen, addLiving, addDining);
-                scoreManager.AwardItems(scoreAmount, moreScoreAmount, lesserScoreAmount);
+            
+                switch (selectedGrocery)
+                {
+                    case GroceryType.KitchenStuff:
+                        itemManager.LossKitchenStuff(addItems, loseKitchen);
+                        selectedKitchen = true;
+                        selectedLiving = false;
+                        selectedDining = false;
 
-            }
+                        if (selectedKitchen == true)
+                        {
+                          scoreManager.AwardKitchenPoints(scoreKitchen);
+                        }
+
+                        break;
+
+                    case GroceryType.DiningRoomStuff:
+                        itemManager.LossDiningStuff(addItems, loseDining);
+                        selectedKitchen = false;
+                        selectedLiving = false;
+                        selectedDining = true;
+
+                        if (selectedDining == true)
+                        {
+                          scoreManager.AwardDiningPoints(scoreDining);
+                        }
+
+                    break;
+
+                    case GroceryType.LivingRoomStuff:
+                        itemManager.LossLivingStuff(addItems, loseLiving);
+                        selectedKitchen = false;
+                        selectedLiving = true;
+                        selectedDining = false;
+
+                        if (selectedLiving == true)
+                        {
+                          scoreManager.AwardLivingPoints(scoreLiving);
+                        }
+
+                    break;
+                }
+            
+        }
+    }
+
+    public void SwitchSelection(int direction)
+    {
+        int newSelection = ((int)selectedGrocery + direction) % 3;
+        if (newSelection < 0) newSelection += 3;
+        selectedGrocery = (GroceryType)newSelection;
+
+        UpdateUI();
+    }
+
+    public void UpdateUI()
+    {
+        pinkGroceryUI.GetComponent< Image>().color = Color.black; // Default color for kitchen
+        purpleGroceryUI.GetComponent<Image>().color = Color.black; // Default color for living room
+        blueGroceryUI.GetComponent<Image>().color = Color.black; // Default color for dining room
+
+        // Highlight the selected grocery
+        switch (selectedGrocery)
+        {
+            case GroceryType.KitchenStuff:
+                pinkGroceryUI.GetComponent<Image>().color = Color.red; // Highlight kitchen
+                break;
+            case GroceryType.LivingRoomStuff:
+                purpleGroceryUI.GetComponent<Image>().color = Color.red; // Highlight living room
+                break;
+            case GroceryType.DiningRoomStuff:
+                blueGroceryUI.GetComponent<Image>().color = Color.red; // Highlight dining room
+                break;
         }
     }
 
@@ -187,19 +301,20 @@ public class PlayerMovement : MonoBehaviour
         isDoor = state;
     }
 
-    public void SetIsCar(bool state)
-    {
-        isCar = state;
-    }
-
-    public void SetIsGrocery(bool state)
-    {
-        isGrocery = state;
-    }
-
+  
     public void SetKitchenFood(bool state)
     {
+        kitchenFood = state;
+    }
 
+    public void SetDiningFood(bool state)
+    {
+        diningFood = state;
+    }
+
+    public void SetLivingFood(bool state)
+    {
+        livingFood = state;
     }
 
 }

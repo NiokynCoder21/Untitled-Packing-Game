@@ -20,7 +20,7 @@ public class DropOff : MonoBehaviour
 
         if (collision.gameObject.CompareTag("DinningRoom"))
         {
-            scoreManager.SetIsLivingRoom(true);
+            scoreManager.SetIsDiningRoom(true);
         }
     }
 
@@ -38,7 +38,7 @@ public class DropOff : MonoBehaviour
 
         if (other.gameObject.CompareTag("DinningRoom"))
         {
-            scoreManager.SetIsLivingRoom(true);
+            scoreManager.SetIsDiningRoom(true);
         }
     }
 
@@ -56,7 +56,7 @@ public class DropOff : MonoBehaviour
 
         if (collision.gameObject.CompareTag("DinningRoom"))
         {
-            scoreManager.SetIsLivingRoom(false);
+            scoreManager.SetIsDiningRoom(false);
         }
     }
 }

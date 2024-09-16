@@ -11,6 +11,9 @@ public class ScoreManager : MonoBehaviour
     public bool isKitchen = false;
     public bool isLivingRoom = false;
     public bool isDiningRoom = false;
+    public ItemManager itemManager;
+
+    public PlayerMovement movement;
 
     void Start()
     {
@@ -18,33 +21,50 @@ public class ScoreManager : MonoBehaviour
         UpdateScoreText();
     }
 
-    public void AwardItems(int points, int more, int lesser)
-    {
-        score += points;
-        UpdateScoreText();
 
+    public void AwardKitchenPoints(int more)
+    {
         if (isKitchen == true)
         {
-            score += more;
-            UpdateScoreText();
+            if (itemManager != null)
+            {
+                if (itemManager.currentKitchenStuff > 0)
+                {
+                    score += more;
+                    UpdateScoreText();
+                }
+            }
         }
+    }
 
+    public void AwardLivingPoints(int more)
+    {
         if (isLivingRoom == true)
         {
-            score += more;
-            UpdateScoreText();
-        }
+            if (itemManager != null)
+            {
+                if (itemManager.currentLivingStuff > 0)
+                {
+                    score += more;
+                    UpdateScoreText();
+                }
 
+            }
+        }
+    }
+
+    public void AwardDiningPoints( int more)
+    {
         if (isDiningRoom == true)
         {
-            score += more;
-            UpdateScoreText();
-        }
-
-        else
-        {
-            score -= lesser;
-            UpdateScoreText();
+            if (itemManager != null)
+            {
+                if (itemManager.currentDiningStuff > 0)
+                {
+                    score += more;
+                    UpdateScoreText();
+                }
+            }
         }
     }
 

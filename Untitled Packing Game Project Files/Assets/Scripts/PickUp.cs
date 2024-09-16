@@ -12,17 +12,17 @@ public class PickUp : MonoBehaviour //this is logic for setting isGroceries true
     {
         if (collision.gameObject.CompareTag("KitchenRoom"))
         {
-            movement.SetIsGrocery(true);
+            movement.SetKitchenFood(true);
         }
 
         if (collision.gameObject.CompareTag("LivingRoom"))
         {
-            movement.SetIsGrocery(true);
+            movement.SetLivingFood(true);
         }
 
         if (collision.gameObject.CompareTag("DinningRoom"))
         {
-            movement.SetIsGrocery(true);
+            movement.SetDiningFood(true);
         }
     }
 
@@ -30,17 +30,17 @@ public class PickUp : MonoBehaviour //this is logic for setting isGroceries true
     {
         if (other.gameObject.CompareTag("KitchenRoom"))
         {
-            movement.SetIsGrocery(true);
+            movement.SetKitchenFood(true);
         }
 
         if (other.gameObject.CompareTag("LivingRoom"))
         {
-            movement.SetIsGrocery(true);
+            movement.SetLivingFood(true);
         }
 
         if (other.gameObject.CompareTag("DinningRoom"))
         {
-            movement.SetIsGrocery(true);
+            movement.SetDiningFood(true);
         }
     }
 
@@ -48,17 +48,17 @@ public class PickUp : MonoBehaviour //this is logic for setting isGroceries true
     {
         if (collision.gameObject.CompareTag("KitchenRoom"))
         {
-            movement.SetIsGrocery(false);
+            movement.SetKitchenFood(false);
         }
 
         if (collision.gameObject.CompareTag("LivingRoom"))
         {
-            movement.SetIsGrocery(false);
+            movement.SetLivingFood(false);
         }
 
         if (collision.gameObject.CompareTag("DinningRoom"))
         {
-            movement.SetIsGrocery(false);
+            movement.SetDiningFood(false);
         }
     }
 
