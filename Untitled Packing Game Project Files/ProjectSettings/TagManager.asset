@@ -9,6 +9,9 @@ TagManager:
   - LivingRoom
   - KitchenRoom
   - DinningRoom
+  - KitchenDrop
+  - LivingDrop
+  - DiningDrop
   layers:
   - Default
   - TransparentFX

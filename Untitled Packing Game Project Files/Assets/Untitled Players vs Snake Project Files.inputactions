@@ -162,6 +162,17 @@
                 },
                 {
                     "name": "",
+                    "id": "0e8082cd-882b-4578-8b7c-8f63810a8680",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DoorFunctions",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "9a5f2b5b-c15c-404c-bb62-a006e41c2575",
                     "path": "<Keyboard>/enter",
                     "interactions": "",
@@ -173,8 +184,30 @@
                 },
                 {
                     "name": "",
+                    "id": "5d384293-d8fd-4cf2-8cdd-e8cc684cdd3a",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GroceryPickUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "e7a4345e-e2bd-4d4d-b120-3167573ceb37",
                     "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GroceryDrop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4be9213d-89f3-4c08-aaf1-e58f32119e81",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

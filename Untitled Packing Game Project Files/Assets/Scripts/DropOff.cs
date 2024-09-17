@@ -8,35 +8,36 @@ public class DropOff : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("KitchenRoom"))
+        if (collision.gameObject.CompareTag("KitchenDrop"))
         {
             scoreManager.SetIsKitchen(true);
         }
 
-        if (collision.gameObject.CompareTag("LivingRoom"))
+        if (collision.gameObject.CompareTag("LivingDrop"))
         {
             scoreManager.SetIsLivingRoom(true);
         }
 
-        if (collision.gameObject.CompareTag("DinningRoom"))
+        if (collision.gameObject.CompareTag("DiningDrop"))
         {
             scoreManager.SetIsDiningRoom(true);
         }
     }
 
-    private void OnTriggerStay(Collider other)
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (other.gameObject.CompareTag("KitchenRoom"))
+        if (collision.gameObject.CompareTag("KitchenDrop"))
         {
             scoreManager.SetIsKitchen(true);
         }
 
-        if (other.gameObject.CompareTag("LivingRoom"))
+        if (collision.gameObject.CompareTag("LivingDrop"))
         {
             scoreManager.SetIsLivingRoom(true);
         }
 
-        if (other.gameObject.CompareTag("DinningRoom"))
+        if (collision.gameObject.CompareTag("DiningDrop"))
         {
             scoreManager.SetIsDiningRoom(true);
         }
@@ -44,17 +45,17 @@ public class DropOff : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("KitchenRoom"))
+        if (collision.gameObject.CompareTag("KitchenDrop"))
         {
             scoreManager.SetIsKitchen(false);
         }
 
-        if (collision.gameObject.CompareTag("LivingRoom"))
+        if (collision.gameObject.CompareTag("LivingDrop"))
         {
             scoreManager.SetIsLivingRoom(false);
         }
 
-        if (collision.gameObject.CompareTag("DinningRoom"))
+        if (collision.gameObject.CompareTag("DiningDrop"))
         {
             scoreManager.SetIsDiningRoom(false);
         }

@@ -104,16 +104,43 @@ public class PickUp : MonoBehaviour //this is logic for setting isGroceries true
         if (collision.gameObject.CompareTag("KitchenRoom"))
         {
             movement.SetKitchenFood(false);
+
+            if (movement != null)
+            {
+                if (movement.hasPicked == true)
+                {
+                    Destroy(collision.gameObject);
+                    movement.hasPicked = false;
+                }
+            }
         }
 
         if (collision.gameObject.CompareTag("LivingRoom"))
         {
             movement.SetLivingFood(false);
+
+            if (movement != null)
+            {
+                if (movement.hasPicked == true)
+                {
+                    Destroy(collision.gameObject);
+                    movement.hasPicked = false;
+                }
+            }
         }
 
         if (collision.gameObject.CompareTag("DinningRoom"))
         {
             movement.SetDiningFood(false);
+
+            if (movement != null)
+            {
+                if (movement.hasPicked == true)
+                {
+                    Destroy(collision.gameObject);
+                    movement.hasPicked = false;
+                }
+            }
         }
     }
 
