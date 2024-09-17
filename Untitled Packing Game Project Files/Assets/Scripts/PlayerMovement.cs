@@ -166,51 +166,33 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move()
     {
-        Vector2 normalizedMove = move.magnitude > 1 ? move.normalized : move;
-
-        if (normalizedMove.x > 0)
+       
+        if (move.x > 0)
         {
-            rb.AddForce(orientation.right * moveForce * Time.deltaTime, ForceMode2D.Force);
+            rb.AddForce(orientation.right * moveForce, ForceMode2D.Impulse);
             spriteRenderer.flipX = true; //changes the sprites direction to the right
-            isRight = true;
-            isMoving = true;
         }
 
-        if (normalizedMove.x < 0)
+        if (move.x < 0)
         {
-            rb.AddForce(-orientation.right * moveForce * Time.deltaTime, ForceMode2D.Force);
+            rb.AddForce(-orientation.right * moveForce, ForceMode2D.Impulse);
             spriteRenderer.flipX = false; //changes the sprites direction to the left
-            isRight = false;
-            isMoving = true;
         }
 
-        if (isMoving)
-        {
-            if (isRight == true)
-            {
-                rb.AddForce(orientation.right * boostForce * Time.deltaTime, ForceMode2D.Impulse);
-            }
 
-            if (isRight == false)
-            {
-                rb.AddForce(-orientation.right * boostForce * Time.deltaTime, ForceMode2D.Impulse);
-            }
+        if (move.y > 0)
+        {
+            rb.AddForce(orientation.up * moveForce, ForceMode2D.Impulse);
         }
 
-        if (normalizedMove.y > 0)
+        if (move.y < 0)
         {
-            rb.AddForce(orientation.up * moveForce, ForceMode2D.Force);
+            rb.AddForce(-orientation.up * moveForce, ForceMode2D.Impulse);
         }
 
-        if (normalizedMove.y < 0)
+        if (move.x == 0 && move.y == 0)
         {
-            rb.AddForce(-orientation.up * moveForce, ForceMode2D.Force);
-        }
-
-        if (move == Vector2.zero)
-        {
-            rb.velocity *= 0.1f; // Reduces the velocity gradually
-            isMoving = false;
+            rb.velocity = Vector2.zero;
         }
     }
 

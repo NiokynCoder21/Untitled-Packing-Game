@@ -8572,7 +8572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4728891704851771749, guid: 3faad05253eaeab44bf98465f73e8be3, type: 3}
       propertyPath: m_TagString
-      value: DiningDrop
+      value: LivingDrop
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9156,10 +9156,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8218055225682943718, guid: 4bf31680b1fe4f6419e3e0150785e02f, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8218055225682943718, guid: 4bf31680b1fe4f6419e3e0150785e02f, type: 3}
+      propertyPath: m_LinearDrag
+      value: 4.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9181333541781322378, guid: 4bf31680b1fe4f6419e3e0150785e02f, type: 3}
       propertyPath: door
       value: 
       objectReference: {fileID: 6511044698889785932}
+    - target: {fileID: 9181333541781322378, guid: 4bf31680b1fe4f6419e3e0150785e02f, type: 3}
+      propertyPath: moveForce
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9181333541781322378, guid: 4bf31680b1fe4f6419e3e0150785e02f, type: 3}
       propertyPath: itemManager
       value: 
