@@ -94,19 +94,42 @@ public class PlayerMovement : MonoBehaviour
             if (kitchenFood == true)
             {
                 PickUp();
+
+                if (itemManager != null)
+                {
+                    if (itemManager.currentItems < 5)
+                    {
+                        hasPicked = true;
+                    }
+                }
+
                 hasPicked = true;
             }
 
             if (livingFood == true)
             {
                 PickUp();
-                hasPicked = true;
+
+                if (itemManager != null)
+                {
+                    if (itemManager.currentItems < 5)
+                    {
+                        hasPicked = true;
+                    }
+                }
             }
 
             if (diningFood == true)
             {
                 PickUp();
-                hasPicked = true;
+
+                if (itemManager != null)
+                {
+                    if (itemManager.currentItems < 5)
+                    {
+                        hasPicked = true;
+                    }
+                }
             }
         }
 
