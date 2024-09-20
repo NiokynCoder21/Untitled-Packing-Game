@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ItemManager : MonoBehaviour //invetory count keeper
+public class ItemManager1 : MonoBehaviour //invetory count keeper
 {
     public TMP_Text kitchenStuffText;
     public TMP_Text livingStuffText;
@@ -14,8 +14,8 @@ public class ItemManager : MonoBehaviour //invetory count keeper
     public int currentDiningStuff = 0;
     public int currentItems = 0;
 
-    public ScoreManager scoreManager;
-    public PlayerMovement movement;
+    public ScoreManager1 scoreManager;
+    public PlayerMovement1 movement;
 
     private void Start()
     {
@@ -32,14 +32,18 @@ public class ItemManager : MonoBehaviour //invetory count keeper
     {
         if (currentItems < 5)
         {
+            print("less than 5");
 
             if (movement != null)
             {
+               
+
                 if (movement.kitchenFood == true)
                 {
                     currentKitchenStuff += more;
                     currentItems += points;
                     UpdateScoreText();
+                    print("more stuff");
                 }
 
                 if (movement.livingFood == true)
@@ -57,11 +61,17 @@ public class ItemManager : MonoBehaviour //invetory count keeper
                 }
             }
 
-          
+           
         }
     }
 
-
+    public void AddKitchen(int points, int more)
+    {
+        currentKitchenStuff += more;
+        currentItems += points;
+        UpdateScoreText();
+        print("more stuff");
+    }
 
     public void LossItems(int points, int more, int most, int better) //the item text when player drop stuff function
     {
