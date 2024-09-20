@@ -2043,7 +2043,7 @@ MonoBehaviour:
   currentLivingStuff: 0
   currentDiningStuff: 0
   currentItems: 0
-  scoreManager: {fileID: 5810325845825292180, guid: c0656fb8b7f894d43bc433437a0e461b, type: 3}
+  scoreManager: {fileID: 3089848523921751972}
   movement: {fileID: 2609861041671422435}
 --- !u!1 &9067485691202305566
 GameObject:
