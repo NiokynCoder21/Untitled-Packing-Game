@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Timer : MonoBehaviour
 {
     public float currentTime;
     public int timeInSeconds = 180;
     public bool isTimeRunning = true;
-    public Text timerText;
+    public TMP_Text timerText;
     void Start()
     {
         currentTime = timeInSeconds; //want the time be 180 seconds 
