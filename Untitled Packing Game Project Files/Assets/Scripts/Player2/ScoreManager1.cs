@@ -5,7 +5,7 @@ using TMPro;
 
 public class ScoreManager1 : MonoBehaviour
 {
-    public static ScoreManager1 Instance;
+    public static ScoreManager1 Instance; //this allows me to call this scripts functions anywhere whithou having to assign in insepctor 
 
     public TMP_Text scoreText;
 
