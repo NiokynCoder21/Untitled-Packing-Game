@@ -1425,12 +1425,13 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   isRight: 0
   isMoving: 0
-  dashForce: 3
+  dashForce: 20
   addItems: 1
   addKitchen: 1
   addLiving: 1
   addDining: 1
   loseDash: 2
+  loseDashItems: 2
   loseMore: 0
   losePush: 0
   door: {fileID: 1961316774354497994, guid: fba037c82fc6b7a409fe945b4a99f9bf, type: 3}

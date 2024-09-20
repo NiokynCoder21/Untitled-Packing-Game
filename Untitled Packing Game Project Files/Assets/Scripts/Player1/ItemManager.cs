@@ -30,7 +30,7 @@ public class ItemManager : MonoBehaviour //invetory count keeper
  
     public void AwardItems(int points, int more, int most, int better)
     {
-        if (currentItems < 5)
+        if (currentItems < 10)
         {
 
             if (movement != null)

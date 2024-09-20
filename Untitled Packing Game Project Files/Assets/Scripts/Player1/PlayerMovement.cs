@@ -107,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
 
                 if (itemManager != null)
                 {
-                    if (itemManager.currentItems < 5)
+                    if (itemManager.currentItems < 10)
                     {
                         hasPicked = true;
                     }
@@ -122,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
 
                 if (itemManager != null)
                 {
-                    if (itemManager.currentItems < 5)
+                    if (itemManager.currentItems < 10)
                     {
                         hasPicked = true;
                     }
@@ -135,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
 
                 if (itemManager != null)
                 {
-                    if (itemManager.currentItems < 5)
+                    if (itemManager.currentItems < 10)
                     {
                         hasPicked = true;
                     }
@@ -288,7 +288,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (itemManager != null)
         {
-            if (itemManager.currentItems < 5)
+            if (itemManager.currentItems < 10)
             {
                 itemManager.AwardItems(addItems, addKitchen, addLiving, addDining);
             }
