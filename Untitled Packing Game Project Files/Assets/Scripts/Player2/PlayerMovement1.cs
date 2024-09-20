@@ -49,6 +49,9 @@ public class PlayerMovement1 : MonoBehaviour
 
     public bool hasPicked = false; //this is to track whether the player has picked up a something or not
 
+    public bool hasTeleported = false;
+    public GameObject player;
+
     public enum GroceryType
     {
         KitchenStuff,
@@ -65,24 +68,23 @@ public class PlayerMovement1 : MonoBehaviour
 
     public void onDoor(InputAction.CallbackContext context)
     {
-        if(isDoor == true)
+
+        if (isDoor == true)
         {
             if (context.performed)
             {
-                if (isDoorDestroyed == false)
+                if (hasTeleported == false)
                 {
-                    OpenDoor();
-                    isDoorDestroyed = true;
+                    TeleportIn();
                 }
 
-                else
+                else if (hasTeleported == true)
                 {
-                    CloseDoor();
-                    isDoorDestroyed = false;
+                    TeleportOut();
                 }
             }
         }
-        
+
     }
 
     public void onCar(InputAction.CallbackContext context)
@@ -148,7 +150,7 @@ public class PlayerMovement1 : MonoBehaviour
     {
         if (context.performed)
         {
-            SwitchSelection(-1);
+            SwitchSelection(1);
         }
     }
 
@@ -156,7 +158,7 @@ public class PlayerMovement1 : MonoBehaviour
     {
         if (context.performed)
         {
-            SwitchSelection(1);
+            SwitchSelection(-1);
         }
     }
 
@@ -195,15 +197,24 @@ public class PlayerMovement1 : MonoBehaviour
         }
     }
 
-    public void OpenDoor()
+    public void TeleportIn()
     {
-        door.gameObject.SetActive(false);
+        Vector3 newPosition = new Vector3(6.1f, -118.3f, 0.1383239f); // Replace with your desired position
+        Quaternion newRotation = Quaternion.identity; // Default rotation (no rotation)
+
+        player.transform.SetPositionAndRotation(newPosition, newRotation);
+        hasTeleported = true;
     }
 
-    public void CloseDoor()
+    public void TeleportOut()
     {
-        door.gameObject.SetActive(true);
+        Vector3 newPosition = new Vector3(1.21f, 4.66f, 0f); // Replace with your desired position
+        Quaternion newRotation = Quaternion.identity; // Default rotation (no rotation)
+
+        player.transform.SetPositionAndRotation(newPosition, newRotation);
+        hasTeleported = false;
     }
+
 
     public void PickUp()
     {

@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public Transform orientation;
     public float moveForce;
-    public SpriteRenderer spriteRenderer;
     public bool isRight = false;
     public bool isMoving = false;
     public float boostForce;
@@ -49,6 +48,14 @@ public class PlayerMovement : MonoBehaviour
 
     public bool hasPicked = false; //this is to track whether the player has picked up a something or not
 
+   // public Transform teleportInside;
+    public Transform teleportOutside;
+
+    public GameObject teleportInside;
+    public GameObject player;
+
+    public bool hasTeleported = false;
+
     public enum GroceryType
     {
         KitchenStuff,
@@ -69,16 +76,14 @@ public class PlayerMovement : MonoBehaviour
         {
             if (context.performed)
             {
-                if (isDoorDestroyed == false)
+                if (hasTeleported == false)
                 {
-                    OpenDoor();
-                    isDoorDestroyed = true;
+                    TeleportIn();
                 }
 
-                else
+                else if (hasTeleported == true)
                 {
-                    CloseDoor();
-                    isDoorDestroyed = false;
+                    TeleportOut();
                 }
             }
         }
@@ -194,16 +199,25 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void OpenDoor()
+    public void TeleportIn()
     {
-        door.gameObject.SetActive(false);
+        Vector3 newPosition = new Vector3(6.1f, -118.3f, 0.1383239f); // Replace with your desired position
+        Quaternion newRotation = Quaternion.identity; // Default rotation (no rotation)
+
+        player.transform.SetPositionAndRotation(newPosition, newRotation);
+        hasTeleported = true;
     }
 
-    public void CloseDoor()
+    public void TeleportOut()
     {
-        door.gameObject.SetActive(true);
+        Vector3 newPosition = new Vector3(1.21f, 4.66f, 0f); // Replace with your desired position
+        Quaternion newRotation = Quaternion.identity; // Default rotation (no rotation)
+
+        player.transform.SetPositionAndRotation(newPosition, newRotation);
+        hasTeleported = false;
     }
 
+  
     public void PickUp()
     {
         if (itemManager != null)

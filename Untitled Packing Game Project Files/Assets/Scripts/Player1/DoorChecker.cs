@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DoorChecker : MonoBehaviour
 {
-    public PlayerMovement1 playerMovement;
+    public PlayerMovement playerMovement;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Door")) //if the object does have wall tag, this to ensure it is not wall running
