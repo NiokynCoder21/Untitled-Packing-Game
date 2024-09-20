@@ -5,6 +5,8 @@ using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
+    public static ScoreManager Instance;
+
     public TMP_Text scoreText;
 
     public int score;
@@ -14,6 +16,15 @@ public class ScoreManager : MonoBehaviour
     public ItemManager itemManager;
 
     public PlayerMovement movement;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
+
 
     void Start()
     {

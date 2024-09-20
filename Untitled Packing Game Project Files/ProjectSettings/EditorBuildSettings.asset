@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OutHouse.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Player1Win.unity
+    guid: e0a37f1068a67c94ca57d57d3110f6d6
+  - enabled: 1
+    path: Assets/Scenes/Player2Win.unity
+    guid: 4b3a90e6cf30d76459c8c7d8a0eed29a
+  - enabled: 1
+    path: Assets/Scenes/PlayersDraw.unity
+    guid: 1b6a2f7f5e73a104d881a846c75903f0
   m_configObjects: {}

@@ -11,6 +11,8 @@ public class Timer : MonoBehaviour
     public int timeInSeconds = 180;
     public bool isTimeRunning = true;
     public TMP_Text timerText;
+
+
     void Start()
     {
         currentTime = timeInSeconds; //want the time be 180 seconds 
@@ -43,8 +45,29 @@ public class Timer : MonoBehaviour
 
     void WinCondition()
     {
-        SceneManager.LoadScene("playerWin", LoadSceneMode.Single);
+        if (ScoreManager.Instance != null && ScoreManager1.Instance != null)
+        {
+            // Store the players' scores using PlayerPrefs
+            PlayerPrefs.SetInt("Player1Score", ScoreManager.Instance.score);
+            PlayerPrefs.SetInt("Player2Score", ScoreManager1.Instance.score);
+
+            // Compare the scores and load the appropriate scene
+            if (ScoreManager.Instance.score > ScoreManager1.Instance.score)
+            {
+                SceneManager.LoadScene("Player1Win", LoadSceneMode.Single); // Load Player 1 win scene
+            }
+
+            else if (ScoreManager1.Instance.score > ScoreManager.Instance.score)
+            {
+                SceneManager.LoadScene("Player2Win", LoadSceneMode.Single); // Load Player 2 win scene
+            }
+
+            else
+            {
+                SceneManager.LoadScene("PlayersDraw", LoadSceneMode.Single); // Load draw scene if scores are equal
+            }
+        }
+
     }
 
-    //https://chat.openai.com
 }
