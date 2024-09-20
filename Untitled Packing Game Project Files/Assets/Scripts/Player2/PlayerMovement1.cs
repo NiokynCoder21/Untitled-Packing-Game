@@ -171,13 +171,11 @@ public class PlayerMovement1 : MonoBehaviour
         if (move.x > 0)
         {
             rb.AddForce(orientation.right * moveForce, ForceMode2D.Impulse);
-            spriteRenderer.flipX = true; //changes the sprites direction to the right
         }
 
         if (move.x < 0)
         {
             rb.AddForce(-orientation.right * moveForce, ForceMode2D.Impulse);
-            spriteRenderer.flipX = false; //changes the sprites direction to the left
         }
 
 
