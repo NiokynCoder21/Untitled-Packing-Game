@@ -73,45 +73,6 @@ public class ItemManager1 : MonoBehaviour //invetory count keeper
         print("more stuff");
     }
 
-    public void LossItems(int points, int more, int most, int better) //the item text when player drop stuff function
-    {
-        if (currentItems > 0)
-        {
-            /*if (scoreManager.isKitchen == true)
-            {
-                if (currentKitchenStuff > 0)
-                {
-                    currentKitchenStuff -= more;
-                    currentItems -= points;
-                    UpdateScoreText();
-                }
-            }*/
-
-       
-           /* if (scoreManager.isLivingRoom == true)
-            {
-                if (currentLivingStuff > 0)
-                {
-                    currentLivingStuff -= most;
-                    currentItems -= points;
-                    UpdateScoreText();
-                }
-                
-            }*/
-
-
-           /* if (scoreManager.isDiningRoom == true)
-            {
-                if (currentDiningStuff > 0)
-                {
-                    currentDiningStuff -= better;
-                    currentItems -= points;
-                    UpdateScoreText();
-                }
-            }*/
-
-        }
-    }
 
     public void LossKitchenStuff(int points, int more)
     {
@@ -172,6 +133,33 @@ public class ItemManager1 : MonoBehaviour //invetory count keeper
             }
 
         }
+    }
+
+    public void LossDash(int points, int more) //dining
+    {
+        if (movement != null)
+        {
+            if (movement.selectedDining == true)
+            {
+                if (currentDiningStuff > 0)
+                {
+                    currentDiningStuff -= more;
+                    currentItems -= points;
+                    UpdateScoreText();
+                }
+            }
+        }
+
+    }
+
+    public void LossPush(int points, int more) //living
+    {
+
+    }
+
+    public void LossMore(int points, int more) //best ability kitchen
+    {
+
     }
 
     private void UpdateScoreText()

@@ -62,47 +62,6 @@ public class ItemManager : MonoBehaviour //invetory count keeper
     }
 
 
-
-    public void LossItems(int points, int more, int most, int better) //the item text when player drop stuff function
-    {
-        if (currentItems > 0)
-        {
-            /*if (scoreManager.isKitchen == true)
-            {
-                if (currentKitchenStuff > 0)
-                {
-                    currentKitchenStuff -= more;
-                    currentItems -= points;
-                    UpdateScoreText();
-                }
-            }*/
-
-       
-           /* if (scoreManager.isLivingRoom == true)
-            {
-                if (currentLivingStuff > 0)
-                {
-                    currentLivingStuff -= most;
-                    currentItems -= points;
-                    UpdateScoreText();
-                }
-                
-            }*/
-
-
-           /* if (scoreManager.isDiningRoom == true)
-            {
-                if (currentDiningStuff > 0)
-                {
-                    currentDiningStuff -= better;
-                    currentItems -= points;
-                    UpdateScoreText();
-                }
-            }*/
-
-        }
-    }
-
     public void LossKitchenStuff(int points, int more)
     {
         if (scoreManager.isKitchen == true)
@@ -161,6 +120,22 @@ public class ItemManager : MonoBehaviour //invetory count keeper
                 }
             }
 
+        }
+    }
+
+    public void LossDash(int points, int more) //dining
+    {
+        if (movement != null)
+        {
+            if (movement.selectedDining == true)
+            {
+                if (currentDiningStuff > 0)
+                {
+                    currentDiningStuff -= more;
+                    currentItems -= points;
+                    UpdateScoreText();
+                }
+            }
         }
     }
 

@@ -13,12 +13,17 @@ public class PlayerMovement1 : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public bool isRight = false;
     public bool isMoving = false;
-    public float boostForce;
+    public float dashForce;
 
     public int addItems;
     public int addKitchen;
     public int addLiving;
     public int addDining;
+
+    public int loseDash;
+    public int loseDashItems;
+    public int loseMore;
+    public int losePush;
 
     public GameObject door;
     public bool isDoor = false;
@@ -146,6 +151,14 @@ public class PlayerMovement1 : MonoBehaviour
         }
     }
 
+    public void onDash(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Dash();
+        }
+    }
+
     public void onLeftSelection(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -215,6 +228,60 @@ public class PlayerMovement1 : MonoBehaviour
         hasTeleported = false;
     }
 
+    public void Dash()
+    {
+        if (selectedDining == true)
+        {
+            if (itemManager != null)
+            {
+                if (itemManager.currentDiningStuff >= 2)
+                {
+                    if (move.x > 0)
+                    {
+                        rb.AddForce(orientation.right * dashForce, ForceMode2D.Impulse);
+
+                        if (itemManager != null)
+                        {
+                            itemManager.LossDash(loseDashItems, loseDash);
+                        }
+                    }
+
+                    if (move.x < 0)
+                    {
+                        rb.AddForce(-orientation.right * dashForce, ForceMode2D.Impulse);
+
+                        if (itemManager != null)
+                        {
+                            itemManager.LossDash(loseDashItems, loseDash);
+                        }
+                    }
+
+
+                    if (move.y > 0)
+                    {
+                        rb.AddForce(orientation.up * dashForce, ForceMode2D.Impulse);
+
+                        if (itemManager != null)
+                        {
+                            itemManager.LossDash(loseDashItems, loseDash);
+                        }
+                    }
+
+                    if (move.y < 0)
+                    {
+                        rb.AddForce(-orientation.up * dashForce, ForceMode2D.Impulse);
+
+                        if (itemManager != null)
+                        {
+                            itemManager.LossDash(loseDashItems, loseDash);
+                        }
+                    }
+                }
+            }
+        }
+
+       
+    }
 
     public void PickUp()
     {

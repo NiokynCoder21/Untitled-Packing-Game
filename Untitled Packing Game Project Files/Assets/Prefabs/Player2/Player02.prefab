@@ -1314,6 +1314,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: ae9cd82b-47fb-4f01-bb2c-fdfd37acccf8
     m_ActionName: Player/Continue[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2609861041671422435}
+        m_TargetAssemblyTypeName: PlayerMovement1, Assembly-CSharp
+        m_MethodName: onDash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 585d3f80-4ee7-49a3-8330-5ebfef5da1da
+    m_ActionName: Player/Dash[/XInputControllerWindows/leftTrigger,/Keyboard/leftShift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1409,11 +1425,14 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   isRight: 0
   isMoving: 0
-  boostForce: 0
+  dashForce: 3
   addItems: 1
   addKitchen: 1
   addLiving: 1
   addDining: 1
+  loseDash: 2
+  loseMore: 0
+  losePush: 0
   door: {fileID: 1961316774354497994, guid: fba037c82fc6b7a409fe945b4a99f9bf, type: 3}
   isDoor: 0
   isDoorDestroyed: 0
