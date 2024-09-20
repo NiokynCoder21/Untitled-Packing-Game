@@ -2098,7 +2098,11 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 38d989ae-62f8-42e1-a1a2-7e4a1168c085
     m_ActionName: Player/RightSelect[/XInputControllerWindows/rightStick/right,/Keyboard/rightArrow]
-  m_NeverAutoSwitchControlSchemes: 1
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 84a9a820-3b41-4b72-b1c7-b4d65d71d154
+    m_ActionName: Player/Retry[/Keyboard/space,/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth]
+  m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1

@@ -15,6 +15,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Retry",
+                    "type": "Button",
+                    "id": "84a9a820-3b41-4b72-b1c7-b4d65d71d154",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "LeftSelect",
                     "type": "Button",
                     "id": "5bbcad4e-ad9e-4175-8286-bcd1204dd08d",
@@ -302,6 +311,28 @@
                     "action": "RightSelect",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "36ea2c42-5017-4d09-bfc0-033b56a1f8b8",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Retry",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dc51bee4-b4e1-43f6-b93f-6cfc857655dd",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Retry",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
