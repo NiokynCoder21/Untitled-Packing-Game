@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isRight = false;
     public bool isMoving = false;
     public float dashForce;
+    public float pushForce;
 
     public int addItems;
     public int addKitchen;
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public int loseDashItems;
     public int loseMore;
     public int losePush;
+    public int losePushItems;
 
     public GameObject door;
     public bool isDoor = false;
@@ -60,6 +62,9 @@ public class PlayerMovement : MonoBehaviour
     public GameObject player;
 
     public bool hasTeleported = false;
+
+    public Rigidbody2D playerRigidbody;
+    public Transform playerTransform;
 
     public enum GroceryType
     {
@@ -176,9 +181,23 @@ public class PlayerMovement : MonoBehaviour
             Dash();
         }
     }
+
+    public void onPush(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Push();
+        }
+    }
     void FixedUpdate()
     {
         Move();
+    }
+
+    public void Start()
+    {
+        playerRigidbody = GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>(); // Find the player object with Rigidbody2D
+        playerTransform = playerRigidbody.transform;
     }
 
     public void Move()
@@ -284,6 +303,12 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
+
+    public void Push()
+    {
+       
+    }
+
     public void PickUp()
     {
         if (itemManager != null)
@@ -398,5 +423,6 @@ public class PlayerMovement : MonoBehaviour
     {
         livingFood = state;
     }
+
 
 }

@@ -2793,6 +2793,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 585d3f80-4ee7-49a3-8330-5ebfef5da1da
     m_ActionName: Player/Dash[/XInputControllerWindows/leftTrigger,/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1189672537117234939}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: onPush
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 98ebfe14-dd99-46a0-a634-2fc293a97061
+    m_ActionName: Player/Push[/Keyboard/space,/XInputControllerWindows/rightTrigger]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -2816,6 +2832,7 @@ MonoBehaviour:
   isRight: 0
   isMoving: 0
   dashForce: 20
+  pushForce: 30
   addItems: 1
   addKitchen: 1
   addLiving: 1
@@ -2823,7 +2840,8 @@ MonoBehaviour:
   loseDash: 2
   loseDashItems: 2
   loseMore: 0
-  losePush: 0
+  losePush: 1
+  losePushItems: 1
   door: {fileID: 1961316774354497994, guid: fba037c82fc6b7a409fe945b4a99f9bf, type: 3}
   isDoor: 0
   isDoorDestroyed: 0
@@ -2851,6 +2869,8 @@ MonoBehaviour:
   teleportInside: {fileID: 3864622245765638567, guid: 6d9841a7f92a5cb46b762eec1e33680d, type: 3}
   player: {fileID: 8707448533234963924}
   hasTeleported: 0
+  playerRigidbody: {fileID: 5734480187581568677, guid: 02b2b2f6829ce28438d3efa43f1d5c1c, type: 3}
+  playerTransform: {fileID: 8191364319358332097, guid: 02b2b2f6829ce28438d3efa43f1d5c1c, type: 3}
   selectedGrocery: 0
 --- !u!50 &8825634148336079195
 Rigidbody2D:

@@ -139,6 +139,19 @@ public class ItemManager : MonoBehaviour //invetory count keeper
         }
     }
 
+    public void LossPush(int points, int more) //living
+    {
+        if (movement.selectedLiving == true)
+        {
+            if (currentLivingStuff > 0)
+            {
+                currentLivingStuff -= more;
+                currentItems -= points;
+                UpdateScoreText();
+            }
+        }
+    }
+
     private void UpdateScoreText()
     {
         kitchenStuffText.text = "" + currentKitchenStuff;
