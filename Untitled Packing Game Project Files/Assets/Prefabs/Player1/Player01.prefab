@@ -2697,7 +2697,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1189672537117234939}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: onCar
+        m_MethodName: onPickUp
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2797,7 +2797,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1189672537117234939}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: onPush
+        m_MethodName: onTouch
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2827,6 +2827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8825634148336079195}
+  enemyRb: {fileID: 5734480187581568677, guid: 02b2b2f6829ce28438d3efa43f1d5c1c, type: 3}
   orientation: {fileID: 7408428999691819482}
   moveForce: 1
   isRight: 0
@@ -2840,8 +2841,8 @@ MonoBehaviour:
   loseDash: 2
   loseDashItems: 2
   loseMore: 0
-  losePush: 1
-  losePushItems: 1
+  losePush: 3
+  losePushItems: 3
   door: {fileID: 1961316774354497994, guid: fba037c82fc6b7a409fe945b4a99f9bf, type: 3}
   isDoor: 0
   isDoorDestroyed: 0
@@ -2865,12 +2866,13 @@ MonoBehaviour:
   selectedDining: 0
   selectedLiving: 0
   hasPicked: 0
+  canPush: 0
   teleportOutside: {fileID: 6239944710862874163, guid: 6e05ef830ac769243bece986ffde100f, type: 3}
   teleportInside: {fileID: 3864622245765638567, guid: 6d9841a7f92a5cb46b762eec1e33680d, type: 3}
   player: {fileID: 8707448533234963924}
   hasTeleported: 0
-  playerRigidbody: {fileID: 5734480187581568677, guid: 02b2b2f6829ce28438d3efa43f1d5c1c, type: 3}
-  playerTransform: {fileID: 8191364319358332097, guid: 02b2b2f6829ce28438d3efa43f1d5c1c, type: 3}
+  playerTwo: {fileID: 0}
+  canTouch: 0
   selectedGrocery: 0
 --- !u!50 &8825634148336079195
 Rigidbody2D:

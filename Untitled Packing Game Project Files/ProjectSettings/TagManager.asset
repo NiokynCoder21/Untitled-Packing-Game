@@ -12,6 +12,7 @@ TagManager:
   - KitchenDrop
   - LivingDrop
   - DiningDrop
+  - PlayerTwo
   layers:
   - Default
   - TransparentFX

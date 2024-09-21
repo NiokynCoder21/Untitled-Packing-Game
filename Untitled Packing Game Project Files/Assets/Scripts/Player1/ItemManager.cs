@@ -139,7 +139,7 @@ public class ItemManager : MonoBehaviour //invetory count keeper
         }
     }
 
-    public void LossPush(int points, int more) //living
+    public void LossTouch(int points, int more) //living
     {
         if (movement.selectedLiving == true)
         {

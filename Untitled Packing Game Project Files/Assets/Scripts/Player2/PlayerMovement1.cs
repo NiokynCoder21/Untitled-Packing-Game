@@ -24,6 +24,7 @@ public class PlayerMovement1 : MonoBehaviour
     public int loseDashItems;
     public int loseMore;
     public int losePush;
+    public int losePushItems;
 
     public GameObject door;
     public bool isDoor = false;
@@ -56,6 +57,10 @@ public class PlayerMovement1 : MonoBehaviour
 
     public bool hasTeleported = false;
     public GameObject player;
+    public GameObject playerOne;
+    public bool canMove = true;
+    public float cooldownTime;
+    public bool canTouch = false; 
 
     public enum GroceryType
     {
@@ -92,7 +97,7 @@ public class PlayerMovement1 : MonoBehaviour
 
     }
 
-    public void onCar(InputAction.CallbackContext context)
+    public void onPickUp(InputAction.CallbackContext context)
     {
 
         if (context.performed)
@@ -175,10 +180,35 @@ public class PlayerMovement1 : MonoBehaviour
         }
     }
 
+    public void onTouch(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Touch();
+        }
+    }
     void FixedUpdate()
     {
-        Move();
+        if (canMove == true)
+        {
+            Move();
+        }
     }
+
+    private void Update()
+    {
+        if (playerOne == null)
+        {
+            playerOne = GameObject.FindWithTag("Player"); //get reference on start of game since the object becomes a clone
+
+            if (playerOne != null)
+            {
+                PlayerMovement player1 = playerOne.GetComponent<PlayerMovement>();
+            }
+        }
+
+    }
+
 
     public void Move()
     {
@@ -243,6 +273,7 @@ public class PlayerMovement1 : MonoBehaviour
                         if (itemManager != null)
                         {
                             itemManager.LossDash(loseDashItems, loseDash);
+                            canMove = true;
                         }
                     }
 
@@ -253,6 +284,7 @@ public class PlayerMovement1 : MonoBehaviour
                         if (itemManager != null)
                         {
                             itemManager.LossDash(loseDashItems, loseDash);
+                            canMove = true;
                         }
                     }
 
@@ -264,6 +296,7 @@ public class PlayerMovement1 : MonoBehaviour
                         if (itemManager != null)
                         {
                             itemManager.LossDash(loseDashItems, loseDash);
+                            canMove = true;
                         }
                     }
 
@@ -274,6 +307,7 @@ public class PlayerMovement1 : MonoBehaviour
                         if (itemManager != null)
                         {
                             itemManager.LossDash(loseDashItems, loseDash);
+                            canMove = true;
                         }
                     }
                 }
@@ -285,19 +319,50 @@ public class PlayerMovement1 : MonoBehaviour
 
     public void PickUp()
     {
-        if (itemManager != null)
+        if (canMove)
         {
-
-            if (itemManager.currentItems < 10)
+            if (itemManager != null)
             {
-                itemManager.AwardItems(addItems, addKitchen, addLiving, addDining);    
-            }
 
-            
-           
+                if (itemManager.currentItems < 10)
+                {
+                    itemManager.AwardItems(addItems, addKitchen, addLiving, addDining);
+                }
+            }
         }
+       
     }
 
+    public void Touch() //second lowest cost ability
+    {
+        if (selectedLiving == true)
+        {
+            if (canTouch == true)
+            {
+                if (playerOne != null)
+                {
+                    // Get the PlayerMovement script from the playerTwo object
+                    PlayerMovement player1 = playerOne.GetComponent<PlayerMovement>();
+
+                    // Disable movement by setting canMove to false
+                    if (player1 != null)
+                    {
+
+                        if (itemManager != null)
+                        {
+                            if (itemManager.currentLivingStuff > 3)
+                            {
+                                player1.SetCanMove(false);
+                                itemManager.LossTouch(losePushItems, losePush);
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+    }
     public void DropItem()
     {
          if (selectedKitchen == true)
@@ -379,6 +444,31 @@ public class PlayerMovement1 : MonoBehaviour
         }
     }
 
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            canTouch = true;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            canTouch = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            canTouch = false;
+        }
+    }
+
     public void SetIsDoor(bool state) //this is used to allow me to check for leftwall in a collsion script
     {
         isDoor = state;
@@ -400,4 +490,19 @@ public class PlayerMovement1 : MonoBehaviour
         livingFood = state;
     }
 
+    public void SetCanMove(bool state)
+    {
+        canMove = state;
+
+        if (!state)
+        {
+            StartCoroutine(CooldownCoroutine());
+        }
+    }
+
+    private IEnumerator CooldownCoroutine()
+    {
+        yield return new WaitForSeconds(cooldownTime); // Wait for the cooldown time
+        canMove = true; // After the wait, allow movement again
+    }
 }
