@@ -60,6 +60,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "ContinueTwo",
+                    "type": "Button",
+                    "id": "28be340c-71b8-4ec1-b92f-767c7bd4f9f4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "LeftSelect",
                     "type": "Button",
                     "id": "5bbcad4e-ad9e-4175-8286-bcd1204dd08d",
@@ -548,6 +557,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Teleport",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0d76a4c8-f290-45e1-8987-89842c0e2e6c",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "ContinueTwo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "90e06de3-ed61-4020-8e52-de167ee8ef49",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ContinueTwo",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

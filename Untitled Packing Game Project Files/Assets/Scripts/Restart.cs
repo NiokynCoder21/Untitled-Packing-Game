@@ -27,6 +27,11 @@ public class Restart : MonoBehaviour
         ContinueGame();
     }
 
+    public void onContiuneTwo(InputAction.CallbackContext context)
+    {
+        MoreIntro();
+    }
+
     public void onMainMenu(InputAction.CallbackContext context)
     {
         MainMenuGame();
@@ -47,6 +52,12 @@ public class Restart : MonoBehaviour
     {
         Destroy(canvas);
         SceneManager.LoadScene("OutHouse", LoadSceneMode.Single); // Load Player 1 win scene
+    }
+
+    public void MoreIntro()
+    {
+        Destroy(canvas);
+        SceneManager.LoadScene("IntroTwo", LoadSceneMode.Single); // Load Player 1 win scene
     }
 
     public void MainMenuGame()

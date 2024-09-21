@@ -1346,6 +1346,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 98ebfe14-dd99-46a0-a634-2fc293a97061
     m_ActionName: Player/Push[/Keyboard/space,/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2609861041671422435}
+        m_TargetAssemblyTypeName: PlayerMovement1, Assembly-CSharp
+        m_MethodName: onTeleport
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 304d483c-3638-46a8-b587-bcc7dcf35c8b
+    m_ActionName: Player/Teleport[/Keyboard/space,/XInputControllerWindows/rightTrigger]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1448,7 +1464,8 @@ MonoBehaviour:
   addDining: 1
   loseDash: 2
   loseDashItems: 2
-  loseMore: 0
+  loseTeleport: 5
+  loseTeleportItems: 5
   losePush: 3
   losePushItems: 3
   door: {fileID: 1961316774354497994, guid: fba037c82fc6b7a409fe945b4a99f9bf, type: 3}
