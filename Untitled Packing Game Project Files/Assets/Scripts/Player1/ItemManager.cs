@@ -152,6 +152,22 @@ public class ItemManager : MonoBehaviour //invetory count keeper
         }
     }
 
+    public void LossTeleport(int points, int more)
+    {
+        if (movement != null)
+        {
+            if (movement.selectedKitchen == true)
+            {
+                if (currentKitchenStuff > 0)
+                {
+                    currentKitchenStuff -= more;
+                    currentItems -= points;
+                    UpdateScoreText();
+                }
+            }
+        }
+    }
+
     private void UpdateScoreText()
     {
         kitchenStuffText.text = "" + currentKitchenStuff;

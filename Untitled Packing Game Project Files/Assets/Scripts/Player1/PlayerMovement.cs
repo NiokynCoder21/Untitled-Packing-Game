@@ -23,7 +23,8 @@ public class PlayerMovement : MonoBehaviour
 
     public int loseDash; //cost of dash
     public int loseDashItems;
-    public int loseMore;
+    public int loseTeleport; //cost of teleport
+    public int loseTeleportItems;
     public int losePush; //cost of touch
     public int losePushItems;
 
@@ -190,6 +191,14 @@ public class PlayerMovement : MonoBehaviour
         if (context.performed)
         {
             Touch();
+        }
+    }
+
+    public void onTeleport(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Teleport();
         }
     }
     void FixedUpdate()
@@ -389,6 +398,23 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    public void Teleport() //most expensive ability
+    {
+        if (selectedKitchen == true)
+        {
+            if (itemManager != null)
+            {
+                if (itemManager.currentKitchenStuff > 4)
+                {
+                    Vector3 newPosition = new Vector3(6.1f, -118.3f, 0.1383239f); // Replace with your desired position
+                    Quaternion newRotation = Quaternion.identity; // Default rotation (no rotation)
+                    player.transform.SetPositionAndRotation(newPosition, newRotation);
+                    itemManager.LossTeleport(loseTeleportItems, loseTeleport);
+                } 
+            }
+        }
+        
+    }
     public void SwitchSelection(int direction)
     {
         int newSelection = ((int)selectedGrocery + direction) % 3;

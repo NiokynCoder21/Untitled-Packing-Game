@@ -96,6 +96,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Teleport",
+                    "type": "Button",
+                    "id": "304d483c-3638-46a8-b587-bcc7dcf35c8b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "GroceryPickUp",
                     "type": "Button",
                     "id": "8381f0ed-267f-4c1d-9a08-c332dc4f8b91",
@@ -517,6 +526,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Push",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ca34a5c7-02d4-4f2f-998f-f773984043f0",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Teleport",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "af3cebd4-6bbf-4d59-9a87-7ff1f99d287f",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Teleport",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
