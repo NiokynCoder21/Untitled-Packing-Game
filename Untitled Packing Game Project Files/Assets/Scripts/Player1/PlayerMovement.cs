@@ -345,7 +345,7 @@ public class PlayerMovement : MonoBehaviour
 
                         if (itemManager != null)
                         {
-                            if (itemManager.currentLivingStuff > 3)
+                            if (itemManager.currentLivingStuff > 2)
                             {
                                 player2.SetCanMove(false);
                                 itemManager.LossTouch(losePushItems, losePush);
@@ -410,6 +410,7 @@ public class PlayerMovement : MonoBehaviour
                     Quaternion newRotation = Quaternion.identity; // Default rotation (no rotation)
                     player.transform.SetPositionAndRotation(newPosition, newRotation);
                     itemManager.LossTeleport(loseTeleportItems, loseTeleport);
+                    hasTeleported = true;
                 } 
             }
         }

@@ -1362,6 +1362,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 304d483c-3638-46a8-b587-bcc7dcf35c8b
     m_ActionName: Player/Teleport[/Keyboard/space,/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 28be340c-71b8-4ec1-b92f-767c7bd4f9f4
+    m_ActionName: Player/ContinueTwo[/Keyboard/enter]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -2320,7 +2324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3341842013942257551, guid: 297c8d96968264648be0c89512000e91, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 789.00024
       objectReference: {fileID: 0}
     - target: {fileID: 3341842013942257551, guid: 297c8d96968264648be0c89512000e91, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2382,7 +2386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6569141289106385952, guid: 3d4581a2f586e214d89baeb1884f2e54, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 789.00024
       objectReference: {fileID: 0}
     - target: {fileID: 6569141289106385952, guid: 3d4581a2f586e214d89baeb1884f2e54, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2448,7 +2452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8833772964688386448, guid: 166fb33696f152045974f41363e7d73a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00012207031
+      value: 789
       objectReference: {fileID: 0}
     - target: {fileID: 8833772964688386448, guid: 166fb33696f152045974f41363e7d73a, type: 3}
       propertyPath: m_LocalPosition.z
