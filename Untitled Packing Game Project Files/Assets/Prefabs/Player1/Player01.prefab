@@ -2873,6 +2873,8 @@ MonoBehaviour:
   hasTeleported: 0
   playerTwo: {fileID: 0}
   canTouch: 0
+  canMove: 1
+  cooldownTime: 10
   selectedGrocery: 0
 --- !u!50 &8825634148336079195
 Rigidbody2D:

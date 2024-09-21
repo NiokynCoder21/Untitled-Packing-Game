@@ -1331,7 +1331,19 @@ MonoBehaviour:
     m_ActionId: 585d3f80-4ee7-49a3-8330-5ebfef5da1da
     m_ActionName: Player/Dash[/XInputControllerWindows/leftTrigger,/Keyboard/leftShift]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2609861041671422435}
+        m_TargetAssemblyTypeName: PlayerMovement1, Assembly-CSharp
+        m_MethodName: Touch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 98ebfe14-dd99-46a0-a634-2fc293a97061
     m_ActionName: Player/Push[/Keyboard/space,/XInputControllerWindows/rightTrigger]
   m_NeverAutoSwitchControlSchemes: 0

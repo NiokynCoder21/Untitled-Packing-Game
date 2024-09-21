@@ -337,19 +337,25 @@ public class PlayerMovement1 : MonoBehaviour
     {
         if (selectedLiving == true)
         {
+            print("chose living");
+
             if (canTouch == true)
             {
+                print("can touch");
+
                 if (playerOne != null)
                 {
                     // Get the PlayerMovement script from the playerTwo object
                     PlayerMovement player1 = playerOne.GetComponent<PlayerMovement>();
-
+                    print("player one is here");
                     // Disable movement by setting canMove to false
                     if (player1 != null)
                     {
 
                         if (itemManager != null)
                         {
+                            print("item is not null");
+
                             if (itemManager.currentLivingStuff > 3)
                             {
                                 player1.SetCanMove(false);
